@@ -1,9 +1,6 @@
-from dotenv import load_dotenv
 import os
-load_dotenv()
 from get_data import getHourlyWeatherData, latitude, longitude, units
 from datetime import datetime
-
 
 API_KEY = os.getenv('API_KEY')
 

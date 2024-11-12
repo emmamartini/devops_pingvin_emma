@@ -1,9 +1,7 @@
 import pytest
 import os
 import requests
-from dotenv import load_dotenv
 
-load_dotenv()
 latitude = 59.3293
 longitude = 18.0686
 units = "metric"

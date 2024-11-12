@@ -1,9 +1,7 @@
 import requests
 import datetime
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
 latitude = 59.3293
 longitude = 18.0686
 units = "metric"

@@ -1,8 +1,6 @@
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template
 from get_data import getHourlyWeatherData
 import os
-from dotenv import load_dotenv
-load_dotenv()
 app = Flask(__name__)
 
 
