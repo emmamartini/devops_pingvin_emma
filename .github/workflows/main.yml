@@ -53,6 +53,8 @@ jobs:
     needs: login_and_test
     if: ${{ success() }}
     steps: 
+      - uses: actions/checkout@v4
+        
       - name: Build the Docker image
         run: docker build --build-arg API_KEY=${{ secrets.API_KEY }} -t ${{ secrets.DOCKER_EMMA_USERNAME }}/devops:latest --file Dockerfile .
 
