@@ -39,7 +39,13 @@ jobs:
     - name: Run tests with pytest
       env:
         API_KEY: ${{ secrets.API_KEY }}
-      run: python -m pytest
+        run: |
+          if [ ${{ github.event.inputs.log_error_file }} = true ]; then
+            python -m pytest > error_logs/test_error_log.txt
+          else
+            python -m pytest
+          fi
+        
 
     - name: Create error log if log_error_file is true
       if: ${{ failure() && github.event.inputs.log_error_file == 'true' }}
