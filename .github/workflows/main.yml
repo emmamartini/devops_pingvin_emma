@@ -11,7 +11,7 @@ on:
         description: "Create log file if there is any errors"
         required: false
         type: boolean
-        default: false
+        default: true
 
 
 jobs:
