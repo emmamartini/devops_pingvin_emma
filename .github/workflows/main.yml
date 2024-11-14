@@ -11,7 +11,7 @@ on:
         description: "Create log file if there is any errors"
         required: false
         type: boolean
-        default: false
+        default: true
 
 
 jobs:
@@ -29,7 +29,7 @@ jobs:
     - name: Set up Python environment
       uses: actions/setup-python@v4
       with:
-        python-version: '3.11'
+        python-version: '3.9'
     
     - name: Install dependencies
       run: |
@@ -37,7 +37,7 @@ jobs:
         pip install -r requirements.txt
     
     - name: Run tests with pytest and log errors if enabled 
-      run: python -m pytest > error_logs/test_error_log.txt
+      run: python -m pytest > test_error_log.txt
       continue-on-error: true
 
     - name: Create error log if log_error_file is true
@@ -45,7 +45,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Create log file
-        path: error_logs/test_error_log.txt
+        path: test_error_log.txt
     
   build_app: 
     if: ${{ success() && github.event.inputs.log_error_file == 'false' }}
