@@ -38,6 +38,8 @@ jobs:
     
     - name: Run tests with pytest and log errors if enabled 
       run: python -m pytest > test_error_log.txt
+      env:
+        API_KEY: ${{ secrets.API_KEY }}
       continue-on-error: true
 
     - name: Create error log if log_error_file is true
