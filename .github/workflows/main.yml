@@ -55,6 +55,11 @@ jobs:
     needs: login_and_test
     steps: 
       - uses: actions/checkout@v4
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_EMMA_USERNAME }}
+          password: ${{ secrets.DOCKER_EMMA_PASSWORD }}
         
       - name: Build the Docker image
         run: docker build --build-arg API_KEY=${{ secrets.API_KEY }} -t ${{ secrets.DOCKER_EMMA_USERNAME }}/devops:latest --file Dockerfile .
