@@ -6,7 +6,7 @@ API_KEY = os.getenv('API_KEY')
 
 def test_per_hour_data_structure():
     perHourData = getHourlyWeatherData(latitude, longitude, API_KEY, units)
-    assert isinstance(perHourData, str)
+    assert isinstance(perHourData, list)
     assert len(perHourData) > 0
     for entry in perHourData:
         assert isinstance(entry, dict)
