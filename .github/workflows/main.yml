@@ -18,12 +18,6 @@ jobs:
   login_and_test:
     runs-on: ubuntu-latest
     steps:
-    - name: Log in to Docker Hub
-      uses: docker/login-action@v2
-      with:
-        username: ${{ secrets.DOCKER_EMMA_USERNAME }}
-        password: ${{ secrets.DOCKER_EMMA_PASSWORD }}
-        
     - uses: actions/checkout@v4
 
     - name: Set up Python environment
